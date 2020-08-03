@@ -61,28 +61,4 @@ class Result {
     }
     
 }
-public class Solution {
-    public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
-        
-        int pangramCount = Integer.parseInt(bufferedReader.readLine().trim());
-        
-        List<String> pangram = IntStream.range(0, pangramCount).mapToObj(i -> {
-            try {
-                return bufferedReader.readLine();
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        })
-        .collect(toList());
-        
-        String result = Result.isPangram(pangram);
-        
-        bufferedWriter.write(result);
-        bufferedWriter.newLine();
-        
-        bufferedReader.close();
-        bufferedWriter.close();
-    }
-}
+
